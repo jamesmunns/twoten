@@ -1,0 +1,12 @@
+[package]
+name = "twoten"
+version = "0.1.0"
+authors = ["James Munns <james@onevariable.com>"]
+edition = "2021"
+readme = "README.md"
+repository = "https://github.com/jamesmunns/twoten"
+description = "Another human readable digest tool"
+license = "MIT OR Apache-2.0"
+documentation = "https://docs.rs/twoten/"
+
+[dependencies]
