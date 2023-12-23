@@ -1,4 +1,4 @@
-//! twoten
+//! # twoten
 //!
 //! Hash data into two bytes, and turn it into an (exactly)
 //! ten byte summary.
@@ -17,16 +17,23 @@ use words::{decode, WORDS};
 pub mod words;
 
 pub fn twoten(data: &[u8]) -> [u8; 10] {
+    // Hash the data, and fold it into two bytes
     let hash32 = fnv1a_32(data);
     let hash16 = hash32 ^ hash32 >> 16;
     let hash16 = (hash16 & 0xFFFF) as u16;
     let [name, oct] = hash16.to_le_bytes();
+
+    // Lookup+decode the name.
     let name = WORDS[name as usize];
     let name = decode(name);
+    // Decode the octal parts
+    let octa = oct_bytes(oct);
+
+    // build the resulting string
     let mut out = [0u8; 10];
     out[..6].copy_from_slice(&name);
     out[6] = b'-';
-    out[7..].copy_from_slice(&oct_bytes(oct));
+    out[7..].copy_from_slice(&octa);
     out
 }
 
@@ -58,18 +65,18 @@ mod test {
     fn smoke() {
         #[rustfmt::skip]
         let checks = &[
-            ("The sea was wet as wet could be,",    *b"  ALEX-236"),
-            ("The sands were dry as dry.",          *b"SOPHIE-335"),
-            ("You could not see a cloud, because",  *b"ROLAND-245"),
-            ("No cloud was in the sky:",            *b"CANTON-326"),
-            ("No birds were flying overhead —",     *b"FENNEC-202"),
-            ("There were no birds to fly.",         *b"URGENT-265"),
-            ("The Walrus and the Carpenter",        *b"QUINCY-271"),
-            ("Were walking close at hand;",         *b"CLOVER-151"),
-            ("They wept like anything to see",      *b"HAMLET-035"),
-            ("Such quantities of sand:",            *b"PAWNEE-065"),
-            ("If this were only cleared away,",     *b"WERNER-301"),
-            ("They said, it would be grand!",       *b" VISTA-315"),
+            ("The sea was wet as wet could be,",    *b" AARON-236"),
+            ("The sands were dry as dry.",          *b"SAMSON-335"),
+            ("You could not see a cloud, because",  *b"RAHEEM-245"),
+            ("No cloud was in the sky:",            *b" CLARA-326"),
+            ("No birds were flying overhead —",     *b" FONDA-202"),
+            ("There were no birds to fly.",         *b"URSINE-265"),
+            ("The Walrus and the Carpenter",        *b" QUADE-271"),
+            ("Were walking close at hand;",         *b"CANTON-151"),
+            ("They wept like anything to see",      *b" HANOI-035"),
+            ("Such quantities of sand:",            *b"PIETRO-065"),
+            ("If this were only cleared away,",     *b"WILSON-301"),
+            ("They said, it would be grand!",       *b"VIOLET-315"),
         ];
 
         for (i, o) in checks {
