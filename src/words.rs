@@ -23,12 +23,12 @@ pub const WORDS: &[u32; 256] = &[
     // 10..20: B
     w2w(*b" BAKER"),
     w2w(*b" BENNY"),
+    w2w(*b" BARRY"),
     w2w(*b" BRIAR"),
     w2w(*b"BAILEY"),
     w2w(*b"BEIRUT"),
     w2w(*b"BENTON"),
     w2w(*b"BERLIN"),
-    w2w(*b"BIANCA"),
     w2w(*b"BONNIE"),
     w2w(*b"BOSTON"),
     // 20..30: C
@@ -47,7 +47,7 @@ pub const WORDS: &[u32; 256] = &[
     w2w(*b" DANTE"),
     w2w(*b" DEREK"),
     w2w(*b" DIXIE"),
-    w2w(*b"DANIEL"),
+    w2w(*b"DANIEL"), // some people use three syllables for daniel...
     w2w(*b"DAPHNE"),
     w2w(*b"DECKER"),
     w2w(*b"DEXTER"),
@@ -55,8 +55,8 @@ pub const WORDS: &[u32; 256] = &[
     w2w(*b"DUSTIN"),
     // 40..50: E
     w2w(*b"  EDEN"),
-    w2w(*b"  EMIL"), // Too close?
-    w2w(*b"  EMMA"), // Emma + Emil?
+    w2w(*b"  ELBA"),
+    w2w(*b"  EMMA"),
     w2w(*b"  ERIC"),
     w2w(*b" ELISE"),
     w2w(*b" ELTON"),
@@ -87,14 +87,14 @@ pub const WORDS: &[u32; 256] = &[
     w2w(*b"GORDON"),
     w2w(*b"GUSTAV"),
     // 70..80: H
+    w2w(*b"  HALO"),
     w2w(*b" HANOI"),
+    w2w(*b"HATTER"),
     w2w(*b" HELEN"),
     w2w(*b"HAMLET"),
     w2w(*b"HANNAH"),
-    w2w(*b"HARIET"), // lotta "har..."
     w2w(*b"HARLEM"), // lotta "har..."
     w2w(*b"HAROLD"), // lotta "har..."
-    w2w(*b"HARVEY"), // lotta "har..."
     w2w(*b"HAWKER"),
     w2w(*b"HOPPER"),
     // 80..90: I
@@ -109,10 +109,10 @@ pub const WORDS: &[u32; 256] = &[
     w2w(*b"INGRID"),
     w2w(*b"IRVING"),
     // 90..100: J
+    w2w(*b"JABBER"),
     w2w(*b"JACQUI"),
     w2w(*b"JARVIS"),
-    w2w(*b"JASMIN"), // too close?
-    w2w(*b"JASPER"), // too close?
+    w2w(*b"JASPER"),
     w2w(*b"JEFFRY"),
     w2w(*b"JESTER"),
     w2w(*b"JETHRO"),
@@ -135,11 +135,11 @@ pub const WORDS: &[u32; 256] = &[
     w2w(*b" LAURA"),
     w2w(*b" LAYLA"),
     w2w(*b" LILLY"),
+    w2w(*b" LIMBO"),
     w2w(*b" LOTTE"),
     w2w(*b" LOUIS"),
     w2w(*b" LUCKY"),
-    w2w(*b"LENNON"), // TOO CLOSE? Lennon + Lenore?
-    w2w(*b"LENORE"), // TOO CLOSE? Lennon + Lenore?
+    w2w(*b"LENNON"),
     w2w(*b"LONDON"),
     // 120..130: M
     w2w(*b"MAGLEV"),
@@ -187,6 +187,7 @@ pub const WORDS: &[u32; 256] = &[
     w2w(*b"PORTER"),
     // 160..170: Q
     w2w(*b" QUADE"),
+    w2w(*b"QUAGGA"),
     w2w(*b" QUERY"),
     w2w(*b" QUIET"), // lotta "qui..."
     w2w(*b"QUARRY"),
@@ -194,7 +195,6 @@ pub const WORDS: &[u32; 256] = &[
     w2w(*b"QUIGON"), // lotta "qui..."
     w2w(*b"QUINCY"), // lotta "qui..."
     w2w(*b"QUINOA"), // lotta "qui..."
-    w2w(*b"QUIRKY"), // lotta "qui..."
     w2w(*b"QUIVER"), // lotta "qui..."
     // 170..180: R
     w2w(*b"RAHEEM"),
@@ -257,10 +257,10 @@ pub const WORDS: &[u32; 256] = &[
     w2w(*b"WARSAW"),
     w2w(*b"WERNER"),
     w2w(*b"WESLEY"),
+    w2w(*b" WIDOW"),
     w2w(*b"WILLOW"), // wil... too close?
     w2w(*b"WILSON"), // wil... too close?
     w2w(*b"WINNIE"), // win... too close?
-    w2w(*b"WINTON"), // win... too close?
     w2w(*b"WORTHY"),
     // 230..240: Z
     //
@@ -318,11 +318,7 @@ pub fn decode(mut v: u32) -> [u8; 6] {
     let mut out = [0u8; 6];
     out.iter_mut().rev().for_each(|b| {
         let ch = (v & 0b11111) as u8;
-        *b = if ch > 25 {
-            b' '
-        } else {
-            ch + b'A'
-        };
+        *b = if ch > 25 { b' ' } else { ch + b'A' };
         v >>= 5;
     });
     out
