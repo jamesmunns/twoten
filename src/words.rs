@@ -271,9 +271,9 @@ pub const WORDS: &[u32; 256] = &[
     w2w(*b"ZEALOT"),
     w2w(*b"ZEBRAS"),
     w2w(*b"ZEPHYR"),
-    w2w(*b"ZEROES"),
     w2w(*b"ZIGZAG"),
     w2w(*b"ZIRCON"),
+    w2w(*b"ZURICH"),
     w2w(*b"ZYGOTE"),
     // 240..250: Y
     w2w(*b" YOSHI"),
