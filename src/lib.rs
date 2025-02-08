@@ -73,9 +73,9 @@ mod test {
             ("There were no birds to fly.",         *b"URSINE-265"),
             ("The Walrus and the Carpenter",        *b" QUADE-271"),
             ("Were walking close at hand;",         *b"CANTON-151"),
-            ("They wept like anything to see",      *b" HANOI-035"),
+            ("They wept like anything to see",      *b"  HALO-035"),
             ("Such quantities of sand:",            *b"PIETRO-065"),
-            ("If this were only cleared away,",     *b"WILSON-301"),
+            ("If this were only cleared away,",     *b"WILLOW-301"),
             ("They said, it would be grand!",       *b"VIOLET-315"),
         ];
 
