@@ -2,7 +2,7 @@
 ///
 /// Words selected by @jamesmunns. General rules:
 ///
-/// 1. Words MUST be exactly two syllables.
+/// 1. Words SHOULD be exactly two syllables (maaaaybe three).
 /// 2. Words MUST be <= 6 ascii characters, in upper case
 /// 3. Words MUST be right aligned
 /// 4. Prefer words that are longer rather than shorter. Ideally all should be 6 letters.
@@ -22,8 +22,8 @@ pub const WORDS: &[u32; 256] = &[
     w2w(*b"AUSTIN"),
     // 10..20: B
     w2w(*b" BAKER"),
-    w2w(*b" BENNY"),
     w2w(*b" BARRY"),
+    w2w(*b" BENNY"),
     w2w(*b" BRIAR"),
     w2w(*b"BAILEY"),
     w2w(*b"BEIRUT"),
@@ -89,12 +89,12 @@ pub const WORDS: &[u32; 256] = &[
     // 70..80: H
     w2w(*b"  HALO"),
     w2w(*b" HANOI"),
-    w2w(*b"HATTER"),
     w2w(*b" HELEN"),
     w2w(*b"HAMLET"),
     w2w(*b"HANNAH"),
     w2w(*b"HARLEM"), // lotta "har..."
     w2w(*b"HAROLD"), // lotta "har..."
+    w2w(*b"HATTER"),
     w2w(*b"HAWKER"),
     w2w(*b"HOPPER"),
     // 80..90: I
@@ -187,9 +187,9 @@ pub const WORDS: &[u32; 256] = &[
     w2w(*b"PORTER"),
     // 160..170: Q
     w2w(*b" QUADE"),
-    w2w(*b"QUAGGA"),
     w2w(*b" QUERY"),
     w2w(*b" QUIET"), // lotta "qui..."
+    w2w(*b"QUAGGA"),
     w2w(*b"QUARRY"),
     w2w(*b"QUEBEC"),
     w2w(*b"QUIGON"), // lotta "qui..."
@@ -253,18 +253,18 @@ pub const WORDS: &[u32; 256] = &[
     w2w(*b"VISION"),
     // 220..230: W
     w2w(*b" WANDA"),
+    w2w(*b" WIDOW"),
     w2w(*b"WALDER"),
     w2w(*b"WARSAW"),
     w2w(*b"WERNER"),
     w2w(*b"WESLEY"),
-    w2w(*b" WIDOW"),
     w2w(*b"WILLOW"), // wil... too close?
     w2w(*b"WILSON"), // wil... too close?
-    w2w(*b"WINNIE"), // win... too close?
+    w2w(*b"WINNIE"),
     w2w(*b"WORTHY"),
     // 230..240: Z
     //
-    // note: q was the hardest, so it's the last 6
+    // note: X was the hardest, so it's the last 6
     w2w(*b" ZELDA"),
     w2w(*b"ZAGREB"),
     w2w(*b"ZATAAR"),
