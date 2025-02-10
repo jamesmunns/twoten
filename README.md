@@ -1,5 +1,7 @@
 # Two-Ten
 
+[![Documentation](https://docs.rs/twoten/badge.svg)](https://docs.rs/twoten)
+
 Another silly human readable digest tool
 
 ## License
