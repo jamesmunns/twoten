@@ -25,7 +25,9 @@
 //! // Supports AsRef conversions
 //! let asref: &str = &name;
 //! assert_eq!("ALFRED-035", asref);
+//! ```
 //!
+//! ```rust,ignore
 //! // `twoten_string` is available on std and makes a heap string.
 //! // requires the `use-std` feature.
 //! use twoten::twoten_string;
@@ -84,7 +86,7 @@ pub fn twoten_buf(data: &[u8]) -> TwoTenString {
 
 /// Hashes data and produces a heap allocated string
 ///
-/// ```rust
+/// ```rust,ignore
 /// use twoten::twoten_string;
 ///
 /// let name: String = twoten_string(b"Hello, world!");
